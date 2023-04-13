@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  question-vue:
+    build: .
+    restart: always
+    volumes:
+      - "./nginx.conf:/etc/nginx/nginx.conf"
+    image: questionnair-vue:1.0
+    ports:
+      - "8096:8080"
+    container_name: "questionnair-vue"
+    networks:
+      - app_net
+
+networks:
+  app_net:
